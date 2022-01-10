@@ -1,0 +1,39 @@
+
+  {% include 'header.html' %}
+
+
+<br/>
+    <a href="{{url_for('create')}}" class="btn btn-success">
+
+        Ingresar nueva terminal
+
+    </a>
+    <br>
+    <br>
+  
+  <table class="table table-light">
+            <thead class="thead-light">
+                <tr>
+                    <th>Terminal</th>
+                    <th>Observacion</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for terminal in terminales %}
+
+                <tr>
+                    <td>{{terminal[1]}}</td>
+                    <td>{{terminal[2]}}</td>
+                    <td>
+                        <a class="btn btn-warning" href="/edit/{{terminal[1]}}">Editar</a> | 
+                        <a onClick="return confirm('quiere eliminar la terminal?')" class="btn btn-danger" href="/destroy/{{terminal[1]}}">Eliminar</a>
+                    </td>
+                </tr>
+                    
+                {% endfor %}
+               
+            </tbody>
+        </table>
+
+        {% include 'footer.html' %}

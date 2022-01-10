@@ -1,0 +1,38 @@
+{% include 'header.html' %}
+
+
+{% for terminal in terminales  %}
+    
+    <form method="post" action="/update" enctype="multipart/form-data">
+        <br>
+        <div class="card">
+            <div class = "card-header" >
+                Editar terminal
+            </div>
+          <div class="card-body">
+            <div <div class="form-group">
+              <label for="txtNumero">Terminal</label>
+              <input type="text" name="txtNumero" id="txtNumero"  value = "{{terminal[1]}}" class="form-control" placeholder="" aria-describedby="helpId">
+            </div>
+        
+            <div <div class="form-group">
+                <label for="txtObservacion">Observación</label>
+                <input type="text" name="txtObservacion" id = "txtObservacion" value="{{terminal[2]}}" class="form-control" placeholder="" aria-describedby="helpId">
+             </div>
+        
+             <div <div class="form-group">
+                <input type="submit" class="btn btn-success" value="agregar">
+                <a href="{{url_for('index')}}"  class  = "btn btn-primary">Regresar</a>
+             </div>
+        
+           
+          </div>
+        </div>    
+
+        
+    </form>
+
+{% endfor %}
+
+
+{% include 'footer.html' %}
